@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { sendNewMessage } from '../../api'
+import { username } from '../../App'
 
 /**
  * This Component broadcasts message to other user by sending to the server 
@@ -22,7 +24,7 @@ export default class MessageSender extends React.PureComponent {
         this.setState({
             message: ''
         })
-        //Todo: Message should be submited to server
+        sendNewMessage(JSON.stringify({message:this.state.message, user:username}))
     }
 
     render() {
