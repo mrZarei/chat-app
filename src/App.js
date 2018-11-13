@@ -41,7 +41,7 @@ class App extends Component<Props, State> {
                     <UsersList/>
                 </LeftComponent>
                 <RightComponent>
-                    <MessageContainer/>
+                    <MessageContainer handleSendMessage={socket.sendNewMessage}/>
                 </RightComponent>
             </Chat>
         );

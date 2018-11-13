@@ -13,14 +13,15 @@ const StyledMessagesWrapper = styled.div`
     height:90%;
 `
 type Props = {
-    messages: Object
+    messages: Object,
+    handleSendMessage: Function
 }
 /***
  * This Component renders Messages and a textbox to submit a new message
  */
 class MessageContainer extends Component<Props> {
     render() {
-        const {messages} = this.props;
+        const {messages, handleSendMessage} = this.props;
         return (
             <StyledMessageList>
                 <StyledMessagesWrapper>
@@ -30,7 +31,7 @@ class MessageContainer extends Component<Props> {
                         }
                     )}
                 </StyledMessagesWrapper>
-                <MessageSender/>
+                <MessageSender sendMessage={handleSendMessage}/>
             </StyledMessageList>
         )
     }
