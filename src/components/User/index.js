@@ -1,7 +1,11 @@
+/* @flow */
 import React from 'react'
 import { StyledUser } from './styles'
 
-export default class User extends React.PureComponent {
+type Props = {
+    name: string
+}
+export default class User extends React.PureComponent<Props> {
     render() {
         const {name} = this.props
         return (

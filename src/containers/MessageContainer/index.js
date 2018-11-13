@@ -1,3 +1,4 @@
+/*  @flow */
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import MessageSender from '../../components/MessageSender'
@@ -11,10 +12,13 @@ const StyledMessageList = styled.div`
 const StyledMessagesWrapper = styled.div`
     height:90%;
 `
+type Props = {
+    messages: Object
+}
 /***
  * This Component renders Messages and a textbox to submit a new message
  */
-class MessageContainer extends Component {
+class MessageContainer extends Component<Props> {
     render() {
         const {messages} = this.props;
         return (
@@ -26,7 +30,7 @@ class MessageContainer extends Component {
                         }
                     )}
                 </StyledMessagesWrapper>
-                <MessageSender handleSend={this.props.sendMessage}/>
+                <MessageSender/>
             </StyledMessageList>
         )
     }

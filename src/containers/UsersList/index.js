@@ -1,12 +1,16 @@
+/* @flow */
 import React, { Component }from 'react'
 import { connect } from 'react-redux'
 import User from '../../components/User'
 import { username } from '../../App'
 
+type Props = {
+    users: string[],
+}
 /***
  * This component renders all the user who are available on our state
  */
-class UsersList extends Component {
+class UsersList extends Component<Props> {
     render() {
         const {users} = this.props
         return (

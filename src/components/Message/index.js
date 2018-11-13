@@ -1,7 +1,12 @@
+/* @flow */
 import React from 'react'
 import { StyledMessage, StyledMessageWrapper, StyledInlineUser} from './styles'
 
-export default class Message extends React.PureComponent {
+type Props = {
+    message: string,
+    sender: string
+}
+export default class Message extends React.PureComponent<Props> {
     render() {
         const {message, sender} = this.props;
         return (

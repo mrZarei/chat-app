@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component } from 'react';
 import Chance from 'chance'
 import styled from 'styled-components'
@@ -25,7 +26,9 @@ const RightComponent = styled.section`
     padding: 5px 0 0 5px;
     height: 100%;
 `
-class App extends Component {
+type Props = {}
+type State = {}
+class App extends Component<Props, State> {
     constructor() {
         super()
         //Introduce ourselve to the server
