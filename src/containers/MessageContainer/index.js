@@ -4,6 +4,7 @@ import MessageSender from '../../components/MessageSender'
 import styled from 'styled-components'
 import Message from '../../components/Message'
 import { sendMessage } from './actions'
+import { username } from '../../App'
 
 const StyledMessageList = styled.div`
     height:100%;
@@ -20,7 +21,11 @@ class MessageContainer extends Component {
         return (
             <StyledMessageList>
                 <StyledMessagesWrapper>
-                    {messages.map(message => <Message message={message.message} sender={message.user}></Message>)}
+                    {messages.map(message => {
+                        const sender = (message.user == username)? 'Me' : message.user
+                            return <Message message={message.message} sender={sender}></Message>
+                        }
+                    )}
                 </StyledMessagesWrapper>
                 <MessageSender handleSend={this.props.sendMessage}/>
             </StyledMessageList>
