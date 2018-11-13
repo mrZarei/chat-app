@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import MessageSender from '../../components/MessageSender'
 import styled from 'styled-components'
 import Message from '../../components/Message'
-import { username } from '../../App'
 
 const StyledMessageList = styled.div`
     height:100%;
@@ -14,24 +13,25 @@ const StyledMessagesWrapper = styled.div`
 `
 type Props = {
     messages: Object,
-    handleSendMessage: Function
+    handleSendMessage: Function,
+    myUsername: string
 }
 /***
  * This Component renders Messages and a textbox to submit a new message
  */
 class MessageContainer extends Component<Props> {
     render() {
-        const {messages, handleSendMessage} = this.props;
+        const {messages, handleSendMessage, myUsername} = this.props;
         return (
             <StyledMessageList>
                 <StyledMessagesWrapper>
                     {messages.map((message, index) => {
-                        const sender = (message.user === username)? 'Me' : message.user
+                        const sender = (message.user === myUsername)? 'Me' : message.user
                             return <Message key={index} message={message.message} sender={sender}></Message>
                         }
                     )}
                 </StyledMessagesWrapper>
-                <MessageSender sendMessage={handleSendMessage}/>
+                <MessageSender sendMessage={handleSendMessage} myUsername={myUsername}/>
             </StyledMessageList>
         )
     }

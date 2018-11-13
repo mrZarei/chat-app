@@ -6,8 +6,6 @@ import UsersList from './containers/UsersList'
 import MessageContainer from './containers/MessageContainer'
 import * as socket from './api'
 
-// To keep the project simple we pick a rondom name for the user every time they visit our chat app
-export const username = new Chance().first()
 const Chat = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -29,19 +27,23 @@ const RightComponent = styled.section`
 type Props = {}
 type State = {}
 class App extends Component<Props, State> {
+    myUsername : string
     constructor() {
         super()
+
+        // To keep the project simple we pick a rondom name for the user every time they visit our chat app
+        this.myUsername = new Chance().first()
         //Introduce ourselve to the server
-        socket.addUser(username)
+        socket.addUser(this.myUsername)
     }
     render() {
         return (
             <Chat>
                 <LeftComponent>
-                    <UsersList/>
+                    <UsersList myUsername={this.myUsername}/>
                 </LeftComponent>
                 <RightComponent>
-                    <MessageContainer handleSendMessage={socket.sendNewMessage}/>
+                    <MessageContainer handleSendMessage={socket.sendNewMessage} myUsername={this.myUsername} />
                 </RightComponent>
             </Chat>
         );

@@ -1,7 +1,6 @@
 /* @flow */
 
 import React from 'react'
-import { username } from '../../App'
 import { StyledSender } from './styles'
 
 /**
@@ -10,6 +9,7 @@ import { StyledSender } from './styles'
 
 type Props = {
     sendMessage: Function,
+    myUsername: string,
 }
 
 type State = {
@@ -34,7 +34,7 @@ export default class MessageSender extends React.PureComponent<Props, State> {
         this.setState({
             message: ''
         })
-        this.props.sendMessage(JSON.stringify({message:this.state.message, user:username}))
+        this.props.sendMessage(JSON.stringify({message:this.state.message, user:this.props.myUsername}))
     }
 
     render() {
