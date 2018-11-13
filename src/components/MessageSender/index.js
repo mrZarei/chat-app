@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { sendNewMessage } from '../../api'
 import { username } from '../../App'
+import { StyledSender } from './styles'
 
 /**
  * This Component broadcasts message to other user by sending to the server 
@@ -30,7 +31,8 @@ export default class MessageSender extends React.PureComponent {
     render() {
         return (<div>
             <form onSubmit={(e) => this.handelSubmit(e)}>
-                <input
+                <StyledSender
+                    placeholder="Message..."
                     onChange={(e) => this.handlechange(e)}
                     value={this.state.message}
                     type="text"

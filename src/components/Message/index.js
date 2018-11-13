@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { StyledMessage, StyledMessageWrapper, StyledInlineUser} from './styles'
 
-export default class Message extends React.PureComponent{
-    render(){
-        const { message , sender} = this.props;
+export default class Message extends React.PureComponent {
+    render() {
+        const {message, sender} = this.props;
         return (
-            <h2>{sender}:{message}</h2>
+            <StyledMessageWrapper>
+                <StyledMessage><StyledInlineUser>{sender}:</StyledInlineUser> {message}</StyledMessage>
+            </StyledMessageWrapper>
         )
     }
 

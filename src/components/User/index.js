@@ -1,10 +1,11 @@
 import React from 'react'
+import { StyledUser } from './styles'
 
 export default class User extends React.PureComponent {
     render() {
         const {name} = this.props
         return (
-            <h2>{name}</h2>
+            <StyledUser>{name}</StyledUser>
         )
     }
 }

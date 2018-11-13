@@ -11,8 +11,8 @@ const Chat = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-areas: "left right";
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 95vh;
 `
 const LeftComponent = styled.section`
     grid-area: left;
@@ -23,7 +23,6 @@ const LeftComponent = styled.section`
 const RightComponent = styled.section`
     grid-area: right;
     padding: 5px 0 0 5px;
-    border-right: 1px solid #3f3f3f;
     height: 100%;
 `
 class App extends Component {
