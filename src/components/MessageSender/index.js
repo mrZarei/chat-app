@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { sendNewMessage } from '../../api'
 import { username } from '../../App'
 import { StyledSender } from './styles'

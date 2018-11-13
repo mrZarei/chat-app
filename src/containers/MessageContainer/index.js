@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import MessageSender from '../../components/MessageSender'
 import styled from 'styled-components'
 import Message from '../../components/Message'
-import { sendMessage } from './actions'
 import { username } from '../../App'
 
 const StyledMessageList = styled.div`
@@ -21,9 +20,9 @@ class MessageContainer extends Component {
         return (
             <StyledMessageList>
                 <StyledMessagesWrapper>
-                    {messages.map(message => {
-                        const sender = (message.user == username)? 'Me' : message.user
-                            return <Message message={message.message} sender={sender}></Message>
+                    {messages.map((message, index) => {
+                        const sender = (message.user === username)? 'Me' : message.user
+                            return <Message key={index} message={message.message} sender={sender}></Message>
                         }
                     )}
                 </StyledMessagesWrapper>

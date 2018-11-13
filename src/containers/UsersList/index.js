@@ -11,7 +11,7 @@ class UsersList extends Component {
         const {users} = this.props
         return (
             <div>
-                {users.map(user=><User name={(user==username)? `${user} (me)` : user}></User>)}
+                {users.map((user, index)=><User key={index} name={(user===username)? `${user} (me)` : user}></User>)}
             </div>
         )
     }

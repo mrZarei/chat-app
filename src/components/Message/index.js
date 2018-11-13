@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyledMessage, StyledMessageWrapper, StyledInlineUser} from './styles'
 
 export default class Message extends React.PureComponent {
